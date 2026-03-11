@@ -65,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         result.setText("Result: " + (a / b));
     }
 
-
+    public void customOp(View view){
+        String text = result.getText().toString().replace("Result: ", "").trim();
+        double lastResult = text.isEmpty() ? 0 : Double.parseDouble(text);
+        result.setText("Result: " + (lastResult * 893));
+    }
 
 }
