@@ -36,26 +36,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void add(View view){
-        int a = Integer.parseInt(num1.getText().toString());
-        int b = Integer.parseInt(num2.getText().toString());
+        int a = Integer.parseInt(num1.getText().toString().isEmpty() ? "0":num1.getText().toString());
+        int b = Integer.parseInt(num2.getText().toString().isEmpty() ? "0":num2.getText().toString());
         result.setText("Result: " + (a + b));
     }
 
     public void subtract(View view){
-        int a = Integer.parseInt(num1.getText().toString());
-        int b = Integer.parseInt(num2.getText().toString());
+        int a = Integer.parseInt(num1.getText().toString().isEmpty() ? "0":num1.getText().toString());
+        int b = Integer.parseInt(num2.getText().toString().isEmpty() ? "0":num2.getText().toString());
         result.setText("Result: " + (a - b));
     }
 
     public void multiply(View view){
-        double a = Double.parseDouble(num1.getText().toString());
-        double b = Double.parseDouble(num2.getText().toString());
+        double a = Double.parseDouble(num1.getText().toString().isEmpty() ? "0":num1.getText().toString());
+        double b = Double.parseDouble(num2.getText().toString().isEmpty() ? "0":num2.getText().toString());
         result.setText("Result: " + (a * b));
     }
 
     public void divide(View view){
-        double a = Double.parseDouble(num1.getText().toString());
-        double b = Double.parseDouble(num2.getText().toString());
+        double a = Double.parseDouble(num1.getText().toString().isEmpty() ? "0":num1.getText().toString());
+        double b = Double.parseDouble(num2.getText().toString().isEmpty() ? "0":num2.getText().toString());
+
+        if (b==0){
+            result.setText("Cannot divide by zero");
+            return;
+        }
+
         result.setText("Result: " + (a / b));
     }
 
