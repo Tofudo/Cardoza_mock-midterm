@@ -33,6 +33,21 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        if (savedInstanceState != null) {
+            num1.setText(savedInstanceState.getString("NUM1", ""));
+            num2.setText(savedInstanceState.getString("NUM2", ""));
+            result.setText(savedInstanceState.getString("RESULT", "Result: "));
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("NUM1", num1.getText().toString());
+        outState.putString("NUM2", num2.getText().toString());
+        outState.putString("RESULT", result.getText().toString());
     }
 
     public void add(View view){
